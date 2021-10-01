@@ -158,4 +158,34 @@ public class DeptDAO {
 		}
 		return flag;
 	}
+	//delete from dept_temp where deptno=?
+	public boolean delete(int deptNo) {
+		Connection  con=null;
+		PreparedStatement pstmt=null;
+		boolean flag=false;
+		
+		try {
+			con=getConnection();
+			String sql="delete from dept_temp where deptno=?";
+			pstmt=con.prepareStatement(sql);
+			 pstmt.setInt(1,deptNo);
+			 
+			int result=pstmt.executeUpdate();
+			if (result>0) {
+				flag=true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return flag;
+	}
+	
+	
 }// class
