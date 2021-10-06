@@ -90,7 +90,7 @@ public class SimpleCalc extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		new SimpleCalc();
-
+//½ÇÇà
 	}
 
 }
