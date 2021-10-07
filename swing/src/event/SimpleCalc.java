@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -68,13 +69,23 @@ public class SimpleCalc extends JFrame implements ActionListener {
 		String cmd=e.getActionCommand();
 		if (cmd.equals("확인")) {
 			// 확인 버튼 클릭
-			// num1,num2에 들어 있는 값 가져오기
+			// num1,num2에 들어 있는 값 가져오기\
+			try {
+				
+			
 			int op1=Integer.parseInt(num1.getText());
 			int op2=Integer.parseInt(num2.getText());
 			// 가져온 숫자를 덧샘
 			int total=op1+op2;
 			// 결과를 result 보여주기
 			result.setText(String.valueOf(total));
+			
+			} catch (Exception e2) {
+				//e2.printStackTrace();//개발할때 예외 발생 단계출력
+				
+				//사용자에게 주고싶은 메시지 출력
+				JOptionPane.showMessageDialog(getParent(),"입력값을 확인해 주세요");
+			}
 		}else  {
 			// 취소 버튼 클릭
 			// num1,num2, 에 들어있는 값 지우기
